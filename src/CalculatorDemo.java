@@ -148,7 +148,7 @@ public class CalculatorDemo implements ActionListener {
         }
         if(e.getSource() == clrButton){
          String string = textField.getText();
-         textField.setText();
+         textField.setText("");
          for (int i=0;i<string.length()-1;i++){
              textField.setText(textField.getText()+string.charAt(i));
          }
