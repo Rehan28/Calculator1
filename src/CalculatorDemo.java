@@ -96,6 +96,62 @@ public class CalculatorDemo implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e){
+      for (int i=0;i<10;i++){
+          if(e.getSource() == numberButton[i]){
+            textField.setText(textField.getText().concat(String.valueOf(i)));
+          }
+      }
+        if(e.getSource() == decButton){
+            textField.setText(textField.getText().concat("."));
+        }
+        if(e.getSource() == addButton){
+            num1 = Double.parseDouble(textField.getText());
+            operator = '+';
+            textField.setText("");
 
+        }
+        if(e.getSource() == subButton){
+            num1 = Double.parseDouble(textField.getText());
+            operator = '-';
+            textField.setText("");
+
+        }
+        if(e.getSource() == multButton){
+            num1 = Double.parseDouble(textField.getText());
+            operator = '*';
+            textField.setText("");
+
+        }
+        if(e.getSource() == divButton){
+            num1 = Double.parseDouble(textField.getText());
+            operator = '/';
+            textField.setText("");
+
+        }
+        if(e.getSource() == equButton){
+            num2 = Double.parseDouble(textField.getText());
+            switch (operator){
+                case '+': result = num1 + num2;
+                          break;
+                case '-': result = num1 - num2;
+                    break;
+                case '*': result = num1 * num2;
+                    break;
+                case '/': result = num1 / num2;
+                    break;
+            }
+            textField.setText(String.valueOf(result));
+            num1 = result;
+        }
+        if(e.getSource() == clrButton){
+         textField.setText("");
+        }
+        if(e.getSource() == clrButton){
+         String string = textField.getText();
+         textField.setText();
+         for (int i=0;i<string.length()-1;i++){
+             textField.setText(textField.getText()+string.charAt(i));
+         }
+        }
     }
 }
